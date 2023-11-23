@@ -118,3 +118,16 @@ biseccionAux funcion (a, b) epsilon contador
         fc = funcion c
         c = (a + b) / 2
 
+
+transpuesta :: [[Integer]] -> [[Integer]]
+transpuesta [] = []
+transpuesta ([]:_) = []
+transpuesta m = (map head m) : transpuesta (map tail m)
+
+sumaMatrices :: [[Integer]] -> [[Integer]] -> [[Integer]]
+sumaMatrices [] [] = []
+sumaMatrices (x:xs) (c:cs) = (sumaListas x c) : sumaMatrices xs cs
+
+sumaListas :: [Integer] -> [Integer] -> [Integer]
+sumaListas [] [] = []
+sumaListas (a:as) (b:bs) = (a + b):sumaListas as bs
